@@ -3,12 +3,19 @@
 <head>
   <title>Crumblr</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Home", "/" %> | <%= link_to "About", "/about" %>
-  <%= yield %>
-
+  <div class="navbar navbar-default">
+    <div class="container">
+      <a class="navbar-brand" href="/">Home</a> <a href="/about" class="navbar-brand">About</a>
+    </div>
+  </div>
+<div class="jumbotron">
+<%= yield %>
+</div>
 </body>
 </html>
