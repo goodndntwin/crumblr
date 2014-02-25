@@ -1,6 +1,6 @@
-<h1>Listing posts</h1>
+<h1>Post Index</h1>
 
-<table>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Title</th>
@@ -12,20 +12,24 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class='table table-striped'>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.published %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="35%"><%= post.title %></td>
+        <td width-"45%"><%= truncate(post.content, length: 100) %></td>
+        <td width-"5%"><%= post.published %></td>
+        <td width-"5%"><%= link_to 'View', post %></td>
+        <td width-"5%"><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td width-"5%"><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<div class="actions">
+  <a href="/posts/new">
+    <button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;New Post
+    </button>
+  </a>
+</div>
